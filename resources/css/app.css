@@ -1,0 +1,58 @@
+body {
+    background-color: #f5f4f8;
+}
+
+.sidebar .nav {
+    --bs-nav-link-color: var(--bs-body-color);
+    margin-left: -.5rem
+}
+
+.sidebar .nav-header {
+    font-size: 100%;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--bs-gray-500)
+}
+
+.sidebar i {
+    margin-right: .5rem
+}
+
+.nav-pills {
+    --bs-nav-pills-border-radius: .375rem;
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #2196f3
+}
+
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: var(--bs-nav-pills-border-radius)
+}
+
+.nav-pills .nav-link:disabled {
+    color: var(--bs-nav-link-disabled-color);
+    background-color: transparent;
+    border-color: transparent
+}
+
+.nav-pills .nav-link.active,.nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: var(--bs-nav-pills-link-active-bg)
+}
+
+.nav-fill>.nav-link,.nav-fill .nav-item {
+    flex: 1 1 auto;
+    text-align: center
+}
+
+.nav-justified>.nav-link,.nav-justified .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center
+}
+
+.nav-fill .nav-item .nav-link,.nav-justified .nav-item .nav-link {
+    width: 100%
+}
