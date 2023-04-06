@@ -45,6 +45,10 @@ class Cart extends Model
         return $cart;
     }
 
+    /**
+     * Возвращает конечную стоимость всех продуктов в корзине
+     */
+
     public function getAmount() {
         $amount = 0.0;
         foreach ($this->products as $product) {
@@ -53,6 +57,9 @@ class Cart extends Model
         return $amount;
     }
 
+    /**
+     * Возвращает количество какого-то продукта в корзине
+     */
     public function getProductsCount(): int
     {
         $count = 0;

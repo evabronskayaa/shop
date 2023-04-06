@@ -80,7 +80,7 @@ class ProfileController extends Controller
     public function edit(Profile $profile): View
     {
         if ($profile->user_id !== auth()->user()->id) {
-            abort(404); // это чужой профиль
+            abort(404);
         }
         return view('user.profile.edit', compact('profile'));
     }
