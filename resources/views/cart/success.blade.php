@@ -6,7 +6,7 @@
     <p>Ваш заказ успешно размещен. Наш менеджер скоро свяжется с Вами для уточнения деталей.</p>
 
     <h2>Ваш заказ</h2>
-    <table class="table table-striped table-hover">
+    <table class="table table-bordered">
         <tr>
             <th scope="col">№</th>
             <th scope="col">Наименование</th>

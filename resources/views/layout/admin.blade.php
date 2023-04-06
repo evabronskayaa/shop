@@ -37,9 +37,6 @@
                     <a class="nav-link" href="{{ route('admin.category.index') }}">Категории</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.brand.index') }}">Бренды</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.product.index') }}">Товары</a>
                 </li>
                 <li class="nav-item">

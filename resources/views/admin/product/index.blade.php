@@ -15,11 +15,13 @@
                 @endforeach
             </ul>
         </div>
-        <a href="{{ route('admin.product.create') }}" class="col btn btn-success mb-5 float-end">
-            Создать товар
-        </a>
+        <div class="col">
+            <a href="{{ route('admin.product.create') }}" class="col btn btn-success mb-5 float-end">
+                Создать товар
+            </a>
+        </div>
     </div>
-    <table class="table table-striped table-hover">
+    <table class="table table-bordered">
         <tr>
             <th scope="col">Наименование</th>
             <th scope="col">Описание</th>

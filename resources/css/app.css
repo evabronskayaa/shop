@@ -1,5 +1,5 @@
 body {
-    background-color: #f5f4f8;
+    background-color: #ffffff;
 }
 
 .sidebar .nav {
@@ -56,3 +56,4 @@ body {
 .nav-fill .nav-item .nav-link,.nav-justified .nav-item .nav-link {
     width: 100%
 }
+

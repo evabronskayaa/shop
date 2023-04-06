@@ -13,83 +13,70 @@
     @yield('head')
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-body">
-    <div class="container-fluid">
-        <div class="container">
-            <div class="navbar" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <a class="navbar-brand" href="{{ route('index') }}">Магазин</a>
+<nav class=" container navbar navbar-expand-md navbar-white">
+    <a class="navbar-brand" href="{{ route('catalog.index') }}">Каталог</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav m-auto me-auto">
+            <form action="{{ route('catalog.search') }}" class="d-flex">
+                <input class="form-control me-2" type="search" name="query" placeholder="Поиск по каталогу"
+                       aria-label="Search">
+                <button class=" btn btn-outline-primary" type="submit" id="button-addon2">Искать</button>
+            </form>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" id="top-basket">
+                @include('cart.part.cart')
+            </li>
+            @guest
+                @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('catalog.index') }}">Каталог</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
-                    @include('layout.part.pages')
-                </ul>
-                <ul class="navbar-nav m-auto me-auto">
-                    <form action="{{ route('catalog.search') }}" class="input-group">
-                        <input class="form-control" type="search" name="query" placeholder="Поиск по каталогу"
-                               aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit" id="button-addon2">Искать</button>
-                    </form>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item" id="top-basket">
-                        @include('cart.part.cart')
-                    </li>
-                    <div class="nav-item py-2 py-md-1">
-                        <div class="vr d-none d-md-flex h-100 mx-md-2"></div>
-                        <hr class="d-md-none my-2 opacity-25">
-                    </div>
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
+                @endif
 
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('user.index') }}">
+                            Личный кабинет
+                        </a>
+
+                        @if (auth()->user()->admin)
+                            <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                Панель управления
                             </a>
+                        @endif
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('user.index') }}">
-                                    Личный кабинет
-                                </a>
-
-                                @if (auth()->user()->admin)
-                                    <a class="dropdown-item" href="{{ route('admin.index') }}">
-                                        Панель управления
-                                    </a>
-                                @endif
-
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                            {{ __('Logout') }}
+                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
-            </div>
-        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
+        </ul>
     </div>
 </nav>
 
 <div class="container">
-    <div class="row m-4">
-        <div class="col bg-body rounded-3 shadow-sm d-none p-4 d-md-block">
+    <div class="row mt-4">
+        <div class="col ms-auto">
             <div id="sidebar-offcanvas" class="sidebar-inplace offcanvas-md offcanvas-start"
                  aria-labelledby="sidebar-offcanvas-label">
                 <div class="offcanvas-body">
@@ -99,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 bg-body rounded-3 shadow-sm d-none p-4 ms-1 d-md-block">
+        <div class="col-md-9 d-none p-4 ms-1 d-md-block">
             @if ($message = session('success'))
                 <div class="alert alert-success alert-dismissible mt-0" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>

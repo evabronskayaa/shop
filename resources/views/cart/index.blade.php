@@ -14,7 +14,7 @@
                 </button>
             </form>
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-bordered">
             <tr>
                 <th scope="col">№</th>
                 <th scope="col">Наименование</th>

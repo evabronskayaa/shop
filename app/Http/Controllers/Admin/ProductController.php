@@ -52,11 +52,6 @@ class ProductController extends Controller
      */
     public function store(ProductCatalogRequest $request): RedirectResponse
     {
-        $request->merge([
-            'new' => $request->has('new'),
-            'hit' => $request->has('hit'),
-            'sale' => $request->has('sale'),
-        ]);
         $data = $request->all();
         $data['image'] = $this->imageSaver->upload($request, null, 'product');
         $product = Product::create($data);
@@ -86,11 +81,6 @@ class ProductController extends Controller
      */
     public function update(ProductCatalogRequest $request, Product $product): RedirectResponse
     {
-        $request->merge([
-            'new' => $request->has('new'),
-            'hit' => $request->has('hit'),
-            'sale' => $request->has('sale'),
-        ]);
         $data = $request->all();
         $data['image'] = $this->imageSaver->upload($request, $product, 'product');
         $product->update($data);

@@ -7,7 +7,7 @@
             Создать категорию
         </a>
     </div>
-    <table class="table table-striped table-hover">
+    <table class="table table-bordered">
         <tr>
             <th scope="col">Наименование</th>
             <th scope="col">Описание</th>

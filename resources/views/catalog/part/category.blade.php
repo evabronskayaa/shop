@@ -11,9 +11,9 @@
                 <img src="https://via.placeholder.com/300x150" class="img-fluid" alt="">
             @endif
         </div>
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-center">
             <a href="{{ route('catalog.category', [$category->slug]) }}"
-               class="btn btn-dark">Товары раздела</a>
+               class="btn btn-outline-secondary w-100">Товары раздела</a>
         </div>
     </div>
 </div>

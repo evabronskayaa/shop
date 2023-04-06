@@ -3,7 +3,7 @@
 @section('content')
     <h1>Ваши заказы</h1>
     @if($orders->count())
-        <table class="table table-striped table-hover">
+        <table class="table table-bordered">
             <tr>
                 <th scope="col">№</th>
                 <th scope="col">Дата и время</th>
